@@ -3,7 +3,12 @@
     <h1 class="text-3xl">Unsere Todos</h1>
     <p>Offene Todos: 0</p>
   </div>
-  <div *ngFor="let todo of todos">
-    <app-todo [todo]="todo"></app-todo>
+  <div *ngFor="let todo of todos; let i = index">
+    <app-todo
+      [todo]="todo"
+      [index]="i"
+      (todoIndex)="toggleTodo($event)"
+      (deleteIndex)="deleteTodo($event)"
+    ></app-todo>
   </div>
 </div>

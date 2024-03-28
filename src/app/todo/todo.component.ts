@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-todo',
@@ -7,6 +7,17 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class TodoComponent implements OnInit {
   @Input() todo = { todo: '', done: false };
+  @Input() index = 0;
+  @Output() todoIndex = new EventEmitter<number>();
+  @Output() deleteIndex = new EventEmitter<number>();
+
+  toggleTodo() {
+    this.todoIndex.emit(this.index);
+  }
+
+  deleteTodo() {
+    this.deleteIndex.emit(this.index)
+  }
 
   constructor() {}
 
