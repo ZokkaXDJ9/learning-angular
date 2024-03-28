@@ -1,1 +1,9 @@
-<p>Hello World!</p>
+<div class="mt-10 bg-slate-600 text-white m-auto w-1/2">
+  <div class="text-center border-black border-2 py-2">
+    <h1 class="text-3xl">Unsere Todos</h1>
+    <p>Offene Todos: 0</p>
+  </div>
+  <div *ngFor="let todo of todos">
+    <app-todo [todo]="todo"></app-todo>
+  </div>
+</div>
